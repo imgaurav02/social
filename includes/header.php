@@ -48,7 +48,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Find People</a>
+        <a class="nav-link" href="members.php">Find People</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="messages.php?u_id=new">Messages</a>
@@ -65,9 +65,6 @@
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
   </div>
 </nav>

@@ -95,7 +95,7 @@ $user_name = $row['user_name'];
 
             <div>
             <div id='profile-img'>
-                <img src='users/$user_image' alt='profile' class='img-circle' width='180px' height='185px'>
+                <img src='users/$user_image' alt='profile' class='mr-3 mt-3 rounded-circle' width='180px' height='185px'>
                 <form action='profile.php?u_id=$user_id' method='post' enctype='multipart/form-data'>
                 <label id='update_profile'> Select Profile
                     <input type='file' name='u_image' size='60'>
@@ -214,7 +214,7 @@ $user_name = $row['user_name'];
                         <div id='posts' class='col-sm-11 offset-1'>
                             <div class='row'>
                                 <div class='col-sm-2'>
-                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                <p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50px' height='50px'></p>
                                 </div>
                                 <div class='col-sm-6'>
                                     <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
@@ -246,7 +246,7 @@ $user_name = $row['user_name'];
                         <div id='posts' class='col-sm-11 offset-1'>
                             <div class='row'>
                                 <div class='col-sm-2'>
-                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                <p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50px' height='50px'></p>
                                 </div>
                                 <div class='col-sm-6'>
                                     <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
@@ -280,7 +280,7 @@ $user_name = $row['user_name'];
                         <div id='posts' class='col-sm-11 offset-1'>
                             <div class='row'>
                                 <div class='col-sm-2'>
-                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                <p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50px' height='50px'></p>
                                 </div>
                                 <div class='col-sm-6'>
                                     <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>

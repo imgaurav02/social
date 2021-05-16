@@ -350,7 +350,7 @@ function get_posts(){
 						<div class='panel panel-info'>
 							<div class='panel-body'>
 								<form action='' method='post' class='form-inline'>
-									<textarea name='comment' cols='60' row='4' class='form-control' id='' placeholder='Write Comment Here'></textarea>
+									<textarea name='comment' cols='60' row='4' class='form-control' id='gaurav' placeholder='Write Comment Here'></textarea>
 									<button class='btn btn-info ml-2 pull-right' name='reply'>Comment</button>
 								</form>
 							</div>
@@ -378,6 +378,54 @@ function get_posts(){
 			
 		}
 	}
+
+
+function search_user(){
+	global $con;
+	if(isset($_GET['search_user_btn'])){
+		$search_query = htmlentities($_GET['search_user']);
+
+		$get_user = "select * from users where f_name like '%$search_query%' or l_name like '%$search_query%' or user_name like '%$search_query%'";
+		
+	}
+	else {
+		$get_user = "select * from users";
+	}
+	$run_user = mysqli_query($con,$get_user);
+	while($row_user = mysqli_fetch_array($run_user)){
+		$user_id = $row_user['user_id'];
+		$f_name = $row_user['f_name'];
+		$l_name = $row_user['l_name'];
+		$user_name = $row_user['user_name'];
+		$user_image = $row_user['user_image'];
+
+		echo "
+		<div class='row my-2'>
+		<div class='col-sm-3'>
+		</div>
+		<div class='col-sm-6'>
+			<div class='row border '>
+				<div class='col-sm-4'>
+					<a href='user_profile.php?u_id=$user_id'>
+					<img class='mr-3 mt-3 rounded-circle' src='users/$user_image' width='150px' height='140px' title='$user_name' style='float: left; margin: 1px;' alt=''>
+					</a>
+				</div><br><br>
+				<div class='col-sm-6'>
+				<a href='user_profile.php?u_id=$user_id' style='text-decoration: none; cursor:pointer; color:aqua; '>
+				
+				<strong><h2>$f_name $l_name</h2></strong></a>
+				</div>
+				<div class='col-sm-3'></div>
+			</div>
+		</div>
+		
+		<div class='col-sm-4'></div><br>
+	  	</div>
+
+		";
+	}
+}
+
 ?>
 
 
