@@ -47,6 +47,12 @@ $user_name = $row['user_name'];
             cursor: pointer;
             transform: translate(-50%, -50%);
         }
+        
+        #posts_img{
+            height: 300px;
+            width: 100%;
+        }
+
     </style>
 
     <link rel="stylesheet" href="style/home_style2.css">
@@ -155,7 +161,7 @@ $user_name = $row['user_name'];
     <div class="row">
         <div class="col-sm-2">
         </div>
-        <div class="col-sm-2" style="background-color: #e6e6e6; text-align:center; left:0.9%; border-radius:5px; ">
+        <div class="col-sm-2" style="background-color: #e6e6e6; height:max-content; text-align:center; left:0.9%; border-radius:5px; ">
             <?php
             echo "
                         <center><h2><strong>About</strong></h2></center>
@@ -200,95 +206,143 @@ $user_name = $row['user_name'];
 
                 //now we will display the posts
 
-                if ($content == "No" && strlen($upload_image) >= 1) {
-                    echo "
-                                <div id='own_posts'>
-                                    <div class='row'>
-                                    <div class='col-sm-2'>
-                                        <p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
-                                    </div>
-                                    <div class='col-sm-6'>
-                                            <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-                                            <h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
-						            </div>
-
-                        <div class='col-sm-4'>
-						</div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                    <div class='col-sm-12'>
-                                        <img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
-                                    </div>
-                                </div><br>
-                                <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a><br>
-                                <a href='delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
+                if($content=="No" && strlen($upload_image) >= 1){
+                    echo"
+                    <div class='row' id='own_posts'>
+                        <div class=''>
+                        </div>
+                        <div id='posts' class='col-sm-11 offset-1'>
+                            <div class='row'>
+                                <div class='col-sm-2'>
+                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                </div>
+                                <div class='col-sm-6'>
+                                    <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+                                    <h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
+                                </div>
+                                <div class=''>
+                                </div>
                             </div>
-                                </div><br>
-
-                            ";
-                } else if (strlen($content) >= 1 && strlen($upload_image) >= 1) {
-                    echo "
-                                <div id='own_posts'>
-                                    <div class='row'>
-                                    <div class='col-sm-2'>
-                                        <p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
-                                    </div>
-                                    <div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-							<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
-						</div>
-
-                        <div class='col-sm-4'>
-						</div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                    <div class='col-sm-12'>
-                                        <p>$content</p>
-                                        <img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
-                                    </div>
-                                </div><br>
-                                <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a><br>
-                                <a href='delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
-                            </div>
-                                </div><br>
-
-                            ";
-                } else {
-                    echo "
-                                <div id='own_posts'>
-                                    <div class='row'>
-                                    <div class='col-sm-2'>
-                                        <p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
-                                    </div>
-                                    <div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-							<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
-						</div>
-
-                        <div class='col-sm-4'>
-						</div>
-                                    </div>
-
-
-                                    <div class='row'>
-                                    <div class='col-sm-12'>
-                                        <p>$content</p>
-                                    
-                                    </div>
-                                </div><br>
-                                <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a><br>
-                                <a href='delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
-                            </div>
-                                </div><br>
-
-                            ";
+                            <div class='row'>
+                                <div class='col-sm-12'>
+                                    <img id='posts_img' src='imagepost/$upload_image' style='height:350px;'>
+                                </div>
+                            </div><br>
+                            <div class='row'>
+                            <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a><br>
+                            <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
+                        </div>
+                        </div>
+                        <div class='col-sm-3'>
+                        </div>
+                    </div><br><br>
+                    ";
                 }
+                else if(strlen($content) >= 1 && strlen($upload_image) >= 1){
+                    echo"
+                    <div class='row'>
+                        <div class=''>
+                        </div>
+                        <div id='posts' class='col-sm-11 offset-1'>
+                            <div class='row'>
+                                <div class='col-sm-2'>
+                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                </div>
+                                <div class='col-sm-6'>
+                                    <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+                                    <h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
+                                </div>
+                                <div class=''>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-sm-12'>
+                                    <h3><p>$content</p></h3>
+                                    <img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
+                                </div>
+                            </div><br>
+                            <div class='row'>
+                            <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a><br>
+                            <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
+                        </div>
+                        </div>
+                        <div class='col-sm-3'>
+                        </div>
+                    </div><br><br>
+                    ";
+                }
+                
+                else{
+                    echo"
+                    <div class='row'>
+                        <div class=''>
+                        </div>
+                        <div id='posts' class='col-sm-11 offset-1'>
+                            <div class='row'>
+                                <div class='col-sm-2'>
+                                <p><img src='users/$user_image' class='img-circle' width='50px' height='50px'></p>
+                                </div>
+                                <div class='col-sm-6'>
+                                    <h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+                                    <h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
+                                </div>
+                                <div class=''>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-sm-12'>
+                                    <h3><p>$content</p></h3>
+                                </div>
+                            </div><br>
+                            
+                    ";
+                    
+                    global $con;
+
+                    if(isset($_GET['u_id'])){
+                        $u_id = $_GET['u_id'];
+                    }
+                    $get_posts = "select user_email from users where user_id='$u_id'";
+                    $run_user = mysqli_query($con,$get_posts);
+                    $row = mysqli_fetch_array($run_user);
+
+                    $user_email = $row['user_email'];
+
+                    $user = $_SESSION['user_email'];
+                    $get_user = "select * from users where user_email='$user'";
+                    $run_user = mysqli_query($con,$get_user);
+                    $row = mysqli_fetch_array($run_user);
+
+                    $user_id = $row['user_id'];
+                    $u_email = $row['user_email'];
+
+                    if($u_email != $user_email){
+                        echo "<script>window.open('profile.php?u_id=$user_id', '_self')</script>";
+                    }
+
+                    else{
+                        echo "
+
+                        <div class='row'>
+                        <a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-success'>View</button></a>
+                        <a href='edit_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Edit</button></a>
+                        <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'><button class='btn btn-danger'>Delete</button></a><br>
+                        </div>
+                    </div>
+                    <div class='col-sm-3'>
+                    </div>
+                </div><br><br>
+                        ";
+                    }
+                }
+
+                include("functions/delete_post.php");
             }
             ?>
+
+        </div>
+
+        <div class="col-sm-2">
 
         </div>
     </div>
