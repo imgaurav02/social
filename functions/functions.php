@@ -112,10 +112,10 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+						<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50px' height='50px'></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 							<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 						</div>
 						<div class='col-sm-4'>
@@ -123,7 +123,7 @@ function get_posts(){
 					</div>
 					<div class='row'>
 						<div class='col-sm-12'>
-							<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
+							<img id='posts-img' class='img-fluid' src='imagepost/$upload_image' style='height:350px;'>
 						</div>
 					</div><br>
 					<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
@@ -142,10 +142,10 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+						<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50' height='50'></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 							<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 						</div>
 						<div class='col-sm-4'>
@@ -154,7 +154,7 @@ function get_posts(){
 					<div class='row'>
 						<div class='col-sm-12'>
 							<p>$content</p>
-							<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
+							<img id='posts-img' class='img-fluid' src='imagepost/$upload_image' style='height:350px;'>
 						</div>
 					</div><br>
 					<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
@@ -173,10 +173,10 @@ function get_posts(){
 				<div id='posts' class='col-sm-6'>
 					<div class='row'>
 						<div class='col-sm-2'>
-						<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+						<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='50px' height='50px'></p>
 						</div>
 						<div class='col-sm-6'>
-							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+							<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 							<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 						</div>
 						<div class='col-sm-4'>
@@ -259,10 +259,10 @@ function get_posts(){
 						<div id='posts' class='col-sm-6 border'>
 							<div class='row'>
 								<div class='col-sm-2'>
-								<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+								<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='100px' height='100px'></p>
 								</div>
 								<div class='col-sm-6'>
-									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 									<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 								</div>
 								<div class='col-sm-4'>
@@ -289,10 +289,10 @@ function get_posts(){
 						<div id='posts' class='col-sm-6 border'>
 							<div class='row'>
 								<div class='col-sm-2'>
-								<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+								<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='100px' height='100px'></p>
 								</div>
 								<div class='col-sm-6'>
-									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 									<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 								</div>
 								<div class='col-sm-4'>
@@ -320,10 +320,10 @@ function get_posts(){
 						<div id='posts' class='col-sm-6 border'>
 							<div class='row'>
 								<div class='col-sm-2'>
-								<p><img src='users/$user_image' class='img-circle' width='100px' height='100px'></p>
+								<p><img src='users/$user_image' class='mr-3 mt-3 rounded-circle' width='100px' height='100px'></p>
 								</div>
 								<div class='col-sm-6'>
-									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='profile.php?u_id=$user_id'>$user_name</a></h3>
+									<h3><a style='text-decoration:none; cursor:pointer;color #3897f0;' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
 									<h4><small style='color:black;'>Updated a post on <strong>$post_date</strong></small></h4>
 								</div>
 								<div class='col-sm-4'>

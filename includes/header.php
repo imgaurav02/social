@@ -3,7 +3,7 @@
     include("base.php");
     include("connection.php");
 ?>
-
+<link rel="stylesheet" href="style/post_style.css">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Social</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
