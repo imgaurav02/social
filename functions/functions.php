@@ -7,16 +7,17 @@
         if(isset($_POST['sub'])){
             global $con;
             global $user_id;
-    
+			//getting the data post text
             $content = htmlentities($_POST['content']);
             $upload_image = $_FILES['upload_image']['name'];
             $image_tmp = $_FILES['upload_image']['tmp_name'];
             $random_number = rand(1, 100);
-    
+			//checking if post content greater then 250 don't insert
             if(strlen($content) > 250){
                 echo "<script>alert('Please Use 250 or less than 250 words!')</script>";
                 echo "<script>window.open('home.php', '_self')</script>";
-            }else{
+            }
+			else{
                 if(strlen($upload_image) >= 1 && strlen($content) >= 1){
                     move_uploaded_file($image_tmp, "imagepost/$upload_image.$random_number");
                     $insert = "insert into posts (user_id, post_content, upload_image, post_date) values('$user_id', '$content', '$upload_image.$random_number', NOW())";

@@ -1,7 +1,7 @@
 <?php
 
 $con = mysqli_connect("localhost","root","","social") or die("Connection was not established");
-
+    //getting the post id to delete the post
     if(isset($_GET['post_id'])){
         $post_id = $_GET['post_id'];
 
