@@ -73,7 +73,7 @@
                     <td style="font-weight: bold;">Password</td>
                     <td>
                         <input class="form-control" type="password" name="u_pass" id="mypass" required value="<?php echo $user_pass; ?>">
-                        <input type="checkbox" onclick="show_password()" id=""><strong>Show Password</strong>
+                        <input type="checkbox" onclick="show_password()" ><strong>Show Password</strong>
                     </td>
                 </tr>
                 <tr>
@@ -187,6 +187,22 @@
     <div class="col-sm-2"></div>
       
 </div>
+<!-- show password radio button script  -->
+<script>
+    var state = false;
+    function show_password(){
+        if(state){
+            document.getElementById("mypass").setAttribute("type","password");
+            state = false;
+        }
+        else{
+            document.getElementById("mypass").setAttribute("type","text");
+            state = true;
+
+        }
+    }
+
+</script>
 </body>
 </html>
 

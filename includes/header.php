@@ -58,7 +58,7 @@
           Action
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="my_posts.php?u_id=$user_id">My Posts <span class="badge badge-secondry"><?php $posts?></span></a>
+          <a class="dropdown-item" href="my_post.php?<?php echo "u_id=$user_id"?>">My Posts <span class="badge badge-secondry"><?php $posts?></span></a>
           <a class="dropdown-item" href="edit_profile.php?<?php echo "u_id=$user_id"?>">Edit Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php">Logout</a>
