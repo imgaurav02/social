@@ -95,6 +95,8 @@ function get_posts(){
 		$content = substr($row_posts['post_content'], 0,40);
 		$upload_image = $row_posts['upload_image'];
 		$post_date = $row_posts['post_date'];
+		$likes = $row_posts['likes']>0?"(".$row_posts['likes'].")":"";
+
 
 		$user = "select *from users where user_id='$user_id' AND posts='yes'";
 		$run_user = mysqli_query($con,$user);
@@ -127,6 +129,7 @@ function get_posts(){
 							<img id='posts-img' class='img-fluid' src='imagepost/$upload_image' style='height:350px;'>
 						</div>
 					</div><br>
+					<a href='like.php?id=$post_id' style='float:left;'><button type='button' class='btn btn-light'>Like $likes</button></a>
 					<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 				</div>
 				<div class='col-sm-3'>
@@ -158,6 +161,7 @@ function get_posts(){
 							<img id='posts-img' class='img-fluid' src='imagepost/$upload_image' style='height:350px;'>
 						</div>
 					</div><br>
+					<a href='like.php?id=$post_id' style='float:left;'><button type='button' class='btn btn-light'>Like $likes</button></a>
 					<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 				</div>
 				<div class='col-sm-3'>
@@ -188,6 +192,7 @@ function get_posts(){
 							<h3><p>$content</p></h3>
 						</div>
 					</div><br>
+					<a href='like.php?id=$post_id' style='float:left;'><button type='button' class='btn btn-light'>Like $likes</button></a>
 					<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 				</div>
 				<div class='col-sm-3'>
@@ -565,6 +570,68 @@ function user_posts(){
 			}  
 		}
 	}
+}
+
+
+// like post 
+
+function like_post($id,$user_email){
+	//increment the post table
+	global $con;
+
+	$user_details = "select user_id from users where user_email = '$user_email'";
+	$run_user_details = mysqli_query($con,$user_details);
+	$row = mysqli_fetch_array($run_user_details);
+	$user_id = $row['user_id'];
+
+
+	
+	
+	//save likes details
+	$sql = "select * from likes where post_id=$id limit 1";
+	$res = mysqli_query($con,$sql);
+	$result = false;
+	while($row=mysqli_fetch_assoc($res)){
+		$result[] = $row;
+	}
+	if(is_array($result)){
+		
+		$likes = json_decode($result[0]['likes'],true);
+
+		$user_ids = array_column($likes, "userid");
+		
+		if(!in_array($user_id,$user_ids)){
+			$arr["userid"] = $user_id;
+			$arr["date"] = date("Y-m-d H:i:s");
+			$likes[] = $arr; 
+			$likes_string = json_encode($likes);
+			$sql = "update likes set likes='$likes_string' where post_id=$id limit 1";
+			mysqli_query($con,$sql);
+
+			$post_likes = "update posts set likes=likes+1 where post_id=$id limit 1";
+			mysqli_query($con,$post_likes);
+		}
+		else{
+			$key = array_search($user_id,$user_ids);
+			unset($likes[$key]);
+			$likes_string = json_encode($likes);
+			$sql = "update likes set likes='$likes_string' where post_id=$id limit 1";
+			mysqli_query($con,$sql);
+			$post_likes = "update posts set likes=likes-1 where post_id=$id limit 1";
+			mysqli_query($con,$post_likes);
+		}
+	}
+	else {
+		$arr["userid"] = $user_id;
+		$arr["date"] = date("Y-m-d H:i:s");
+		$arr2[] = $arr;
+		$likes = json_encode($arr2);
+		$sql = "insert into likes (post_id,likes) values($id,'$likes')";
+		mysqli_query($con,$sql);
+		$post_likes = "update posts set likes=likes+1 where post_id=$id limit 1";
+		mysqli_query($con,$post_likes);
+	}
+
 }
 ?>
 
